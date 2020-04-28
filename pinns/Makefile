@@ -1,3 +1,5 @@
+STRIP := strip
+
 src = $(wildcard *.c)
 obj = $(src:.c=.o)
 
@@ -9,7 +11,7 @@ all: ../bin/pinns
 
 ../bin/pinns: $(obj) | ../bin
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-	strip -s $@
+	$(STRIP) -s $@
 
 ../bin:
 	mkdir -p $@
